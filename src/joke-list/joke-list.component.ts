@@ -12,13 +12,12 @@ import { AsyncPipe } from '@angular/common';
 export class JokeListComponent {
 
 
-  private jokeService = inject(JokesService)
+  // inject jokeservice
 
-  jokes = this.jokeService.jokes;
-
-
+  // add a public property 'jokes' - referencing the jokeservice jokes behaviorsubject
+ 
+  // add a new joke on button click - use the jokeservice
   addNewJoke() {
-    this.jokeService.pushNewJoke();
   }
   
 }

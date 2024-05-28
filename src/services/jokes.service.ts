@@ -13,26 +13,17 @@ export class JokesService {
 
   private url = 'https://v2.jokeapi.dev/joke/Programming?type=single';
 
-  private httpClient = inject(HttpClient);
+  // inject httpclient
 
-  // add a subject containing jokes
-  jokes = new BehaviorSubject<Joke []>([]);
+  // add a behaviorsubject containing jokes
 
-
-  public async pushNewJoke(): Promise<void> {
-    const jokes = this.jokes.value;
-    jokes.push(await this.getNewJoke());
-    this.jokes.next(jokes);
+  // implement pushing of new joke to jokes subject
+  public pushNewJoke() {
   }
 
 
   // get jokes with httpclient - use lastValueFrom() to convert an observable to a promise
-  private async getNewJoke(): Promise<Joke> {
-    return lastValueFrom(this.httpClient.get<Joke>(this.url))
+  private getNewJoke(){
   }
-
-
-
-
 
 }
