@@ -15,6 +15,7 @@ export class JokeListComponent {
   private jokeService = inject(JokesService)
 
   jokes = this.jokeService.jokes;
+  jokesLength = this.jokeService.jokesLength;
 
 
   addNewJoke() {

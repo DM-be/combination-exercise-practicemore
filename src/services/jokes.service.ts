@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, inject } from '@angular/core';
-import { BehaviorSubject, lastValueFrom } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { Joke } from '../models/joke';
 
 @Injectable({
@@ -17,6 +17,8 @@ export class JokesService {
 
   // add a subject containing jokes
   jokes = new BehaviorSubject<Joke []>([]);
+
+  jokesLength = this.jokes.asObservable().pipe(map((jokes) => jokes.length))
 
 
   public async pushNewJoke(): Promise<void> {
